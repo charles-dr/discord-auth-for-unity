@@ -2,7 +2,7 @@ export const PING = 'ping';
 
 const _SocketEvent = {
   AUTHORIZE: "socket.event.authorize",
-  AUTH_FAILED: "socket.event.auth.failed",
+  INTERNAL_AUTHORIZE: "socket.internal.event.authorize",
 };
 
 type SocketEventKeys = keyof typeof _SocketEvent;

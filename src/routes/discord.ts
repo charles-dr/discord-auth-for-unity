@@ -17,14 +17,14 @@ router.route('/authorize/:socketId').get((req: Request, res: Response) => {
     .then(token => getGuildList(token))
     .then(guilds => {
       const guild = guilds.find(g => g.id === config.discord.communityServerId);
-      
+
       if (!guild) {
         throw new Error("You are not the member of the community server!");
       }
 
       // process success response
       // to-do: database or session process.
-      socketClient.emit(SocketEvent.AUTHORIZE, { status: 'success' })
+      socketClient.emit(SocketEvent.INTERNAL_AUTHORIZE, { status: true, socketId })
       res.send(`
         <html>
           <head><title>Authorization</title></head>
@@ -36,7 +36,8 @@ router.route('/authorize/:socketId').get((req: Request, res: Response) => {
     })
     .catch(error => {
       // response to the unity application.
-      socketClient.emit(SocketEvent.AUTH_FAILED, {
+      socketClient.emit(SocketEvent.INTERNAL_AUTHORIZE, {
+        status: false,
         message: error.message,
         socketId,
       });

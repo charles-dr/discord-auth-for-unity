@@ -9,10 +9,10 @@ export const initializeSocket = (server: any) => {
 
     socket.on('test', args => {
       console.log('[test]', socket.id, args);
-    })
+    });
 
-    socket.on(SocketEvent.AUTHORIZE as string, args => {
-      socket.emit(SocketEvent.AUTHORIZE, args);
-    })
+    socket.on(SocketEvent.INTERNAL_AUTHORIZE, ({ socketId, ...payload }) => {
+      io.to(socketId).emit(SocketEvent.AUTHORIZE, payload);
+    });
   })
 }
