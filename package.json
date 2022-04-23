@@ -1,0 +1,65 @@
+{
+  "name": "node-express-ts-example",
+  "version": "1.0.0",
+  "description": "node-express-typescript API example",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "npm run tsc",
+    "start": "node ./dist/index.js",
+    "deploy:heroku": "npm run build & git push heroku master",
+    "tsc": "tsc",
+    "checkTs": "tsc --noEmit",
+    "eslint": "eslint --ext js,ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "typescript",
+    "example",
+    "rest",
+    "api"
+  ],
+  "author": "Business Helper <alerk_star@outlook.com> (https://github.com/business-helper)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.4",
+    "@types/supertest": "^2.0.11",
+    "@types/ws": "^8.5.3",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.3.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "node-input-validator": "^4.4.1",
+    "ws": "^7.5.5"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run eslint -- --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run checkTs && lint-staged"
+    }
+  }
+}

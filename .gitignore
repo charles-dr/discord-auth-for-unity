@@ -1,0 +1,17 @@
+
+.DS_Store
+node_modules
+temp
+
+# env file
+.env
+
+# lock files
+package-lock.json
+yarn.lock
+
+# build folder
+# dist
+
+# log file
+npm-debug.log
