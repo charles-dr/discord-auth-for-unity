@@ -49,3 +49,7 @@ heroku login    # if you didn't login to heroku.
 heroku create   # one time only
 npm run deploy:heroku
 ```
+
+## Reference
+
+- [How to tie socket.io width express an TypeScript?](https://stackoverflow.com/questions/66686377/how-to-tie-socket-io-width-express-an-typescript)
