@@ -8,6 +8,7 @@ export interface IDiscordConfig {
   clientSecret: string;
   scopes: string[];
   communityServerId: string;
+  botToken:string;
 }
 
 export interface IOAuth2TokenResponse {

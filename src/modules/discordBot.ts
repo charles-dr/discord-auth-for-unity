@@ -3,7 +3,7 @@ import config from '../config';
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-client.login('Njk1MTkyMDkyMDYxODU5ODUw.XtIlWQ.bjpCdzNOYGIIOCnuoazMNBstmf4');
+client.login(config.discord.botToken);
 
 let guild: Guild;
 

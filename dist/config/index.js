@@ -23,5 +23,11 @@ var dotenv = __importStar(require("dotenv"));
 dotenv.config();
 var config = {
     port: parseInt(process.env.PORT, 10) || 3000,
+    discord: {
+        clientId: "695192092061859850",
+        clientSecret: "7OgYcu5BNNdgi0XWytudFe2XXM909",
+        scopes: ['identify', 'guilds'],
+        communityServerId: '695356483545858178',
+    },
 };
 exports.default = config;

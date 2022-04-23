@@ -7,10 +7,12 @@ dotenv.config();
 const config: Config = {
   port: parseInt(process.env.PORT as string, 10) || 3000,
   discord: {
-    clientId: "695192092061859850",
-    clientSecret: "7OgYcu5BNNdgi0XWytudFe2XXM909",
-    scopes: ['identify', 'guilds'],
-    communityServerId: '695356483545858178',
+    clientId: process.env.DISCORD_APP_ID || "",
+    clientSecret: process.env.DISCORD_APP_SECRET || "",
+    scopes: (process.env.DISCORD_AUTH_SCOPE || "")
+      .split(' ').map(it => it.trim()),
+    botToken: process.env.DISCORD_BOT_TOKEN || "",
+    communityServerId: process.env.DISCORD_COMMUNITY_SERVER_ID || "",
   },
 };
 
