@@ -1,22 +1,29 @@
 export type Config = {
   port: number;
+  discord: IDiscordConfig;
 }
 
-interface ServerToClientEvents {
-  noArg: () => void;
-  basicEmit: (a: number, b: string, c: Buffer) => void;
-  withAck: (d: string, callback: (e: number) => void) => void;
+export interface IDiscordConfig {
+  clientId: string;
+  clientSecret: string;
+  scopes: string[];
+  communityServerId: string;
 }
 
-interface ClientToServerEvents {
-  hello: () => void;
+export interface IOAuth2TokenResponse {
+  access_token: string;
+  expires_in: number;
+  refersh_token: string;
+  scope: string;
+  token_type: string;
 }
 
-interface InterServerEvents {
-  ping: () => void;
-}
-
-interface SocketData {
+export interface IGuild {
+  id: string;
   name: string;
-  age: number;
+  icon: string;
+  owner: boolean;
+  permissions: number;
+  features: string[];
+  permissions_new: string;
 }
