@@ -9,8 +9,8 @@ const config: Config = {
   discord: {
     clientId: "695192092061859850",
     clientSecret: "7OgYcu5BNNdgi0XWytudFe2XXM909",
-    scopes: ['identity', 'guilds'],
-    communityServerId: '713213039079587861',
+    scopes: ['identify', 'guilds'],
+    communityServerId: '695356483545858178',
   },
 };
 

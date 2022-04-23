@@ -1,19 +1,22 @@
-/// <reference types="node" />
 import express from 'express';
+import bodyParser from 'body-parser';
 import * as http from 'http';
 import config from './config';
-import { initializeSocket } from './socket';
-import { internalSocket } from './socket/client';
+import { initializeSocket } from './modules/socketServer';
+import { internalSocket } from './modules/socketClient';
+import { initializeBot } from './modules/discordBot';
 import indexRouter from './routes';
 import discordRouter from './routes/discord';
 
 const app = express();
-// const http = require('http').Server(app);
 const server = http.createServer(app);
 
 // configure the socketIO
 initializeSocket(server);
+initializeBot();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // routings
 app.use('/discord', discordRouter);
 app.use('/', indexRouter);
